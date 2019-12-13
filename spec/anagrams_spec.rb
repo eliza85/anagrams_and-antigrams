@@ -21,7 +21,7 @@ describe("Anagram#anagram?") do
   end
   it ("Comparing the words eat and tear will return false") do
     test1 = Test.new("eat", "tear")
-    expect(test1.anagram?()).to(eq("These words are not anagrams!"))
+    expect(test1.anagram?()).to(eq("These words are neither anagrams nor antigrams!"))
   end
   it ("Comparing the words Eat and Tea will return true") do
     test1 = Test.new("Eat", "Tea")
@@ -33,11 +33,19 @@ describe("Anagram#anagram?") do
   end
   it ("Comparing the words eat and tea will return not an antigram") do
     test1 = Test.new("eat", "tea")
-    expect(test1.antigrams?()).to(eq("These words are not antigrams!"))
+    expect(test1.antigrams?()).to(eq(false))
   end
   it ("Comparing the words eat and bin will return an antigram") do
     test1 = Test.new("eat", "bin")
-    expect(test1.antigrams?()).to(eq("These words are antigrams!"))
+    expect(test1.antigrams?()).to(eq(true))
+  end
+  it ("Comparing the words eat and flim will return that they are not an anagram but are an antigram") do
+    test1 = Test.new("eat", "flim")
+    expect(test1.anagram?()).to(eq("These words are not anagrams but they are antigrams!"))
+  end
+  it ("Comparing the words eat and flam will return that they are neither anagrams nor antigrams") do
+    test1 = Test.new("eat", "flam")
+    expect(test1.anagram?()).to(eq("These words are neither anagrams nor antigrams!"))
   end
 
 end

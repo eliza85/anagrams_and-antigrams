@@ -5,23 +5,27 @@ class Test
     @input2 = input2.downcase.split("").sort
   end
 
+# check if words are anagrams
   def anagram?
     if
     self.isword?
       if
         @input1 == @input2
         return "These words are anagrams!"
-      else
-        return "These words are not anagrams!"
+      elsif
+        self.antigrams?
+        return "These words are not anagrams but they are antigrams!"
+      elsif self.antigrams? == false
+        return "These words are neither anagrams nor antigrams!"
       end
     else
     return "You need to input actual words!"
     end
   end
 
+# check if words contain vowels
   def isword?
     vowels = ["a", "e", "i", "o", "u", "y"]
-
     if
     @input1.any? {|input1| vowels.include?(input1)}
       if
@@ -35,21 +39,14 @@ class Test
     end
   end
 
+# check if words are antigrams
   def antigrams?
     if
       @input1.any? {|input1| @input2.include?(input1)}
-      return "These words are not antigrams!"
+      return false
     else
-      return "These words are antigrams!"
+      return true
     end
   end
 
-    # >> cheeses = ["chedder", "stilton", "brie", "mozzarella", "feta", "haloumi"]
-    # >> foods = ["pizza", "feta", "foods", "bread", "biscuits", "yoghurt", "bacon"]
-    # >> foods.any? {|food| cheeses.include?(food) }
-    # => true
-  # def function_tight(result)
-  #   super_array = [result, result, result]
-  #   super_array.reduce(:+)
-  # end
 end
