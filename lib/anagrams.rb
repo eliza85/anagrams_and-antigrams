@@ -17,21 +17,21 @@
 
 
 # PLUMBED WITH INSTANCES
-class Dude
-
+class Test
 
   def initialize(input1, input2)
     @input1 = input1
     @input2 = input2
   end
 
-  def function_dude
-    result = @input1 + @input2
-    self.function_tight(result)
+  def anagram?
+    @input1.split("").sort == @input2.split("").sort
+    # result = @input1 + @input2
+    # self.function_tight(result)
   end
 
-  def function_tight(result)
-    super_array = [result, result, result]
-    super_array.reduce(:+)
-  end
+  # def function_tight(result)
+  #   super_array = [result, result, result]
+  #   super_array.reduce(:+)
+  # end
 end
