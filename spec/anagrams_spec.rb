@@ -17,20 +17,20 @@ require ('anagrams')
 describe("Anagram#anagram?") do
   it ("Comparing the words eat and tea will return true") do
     test1 = Test.new("eat", "tea")
-    expect(test1.anagram?()).to(eq(true))
+    expect(test1.anagram?()).to(eq("These words are anagrams!"))
   end
   it ("Comparing the words eat and tear will return false") do
     test1 = Test.new("eat", "tear")
-    expect(test1.anagram?()).to(eq(false))
+    expect(test1.anagram?()).to(eq("These words are not anagrams!"))
   end
   it ("Comparing the words Eat and Tea will return true") do
     test1 = Test.new("Eat", "Tea")
-    expect(test1.anagram?()).to(eq(true))
+    expect(test1.anagram?()).to(eq("These words are anagrams!"))
   end
-  it ("An input that is not a word will return an error message") do
-    test1 = Test.new("Eat", "Tzrybq")
-    expect(test1.anagram?()).to(eq("You need to input actual words!"))
-  end
+  # it ("An input that is not a word will return an error message") do
+  #   test1 = Test.new("eat", "Tzrybq")
+  #   expect(test1.isword?()).to(eq("You need to input actual words!"))
+  # end
 end
 
 
