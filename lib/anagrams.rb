@@ -25,7 +25,7 @@ class Test
   end
 
   def anagram?
-    @input1.split("").sort == @input2.split("").sort
+    @input1.downcase.split("").sort == @input2.downcase.split("").sort
     # result = @input1 + @input2
     # self.function_tight(result)
   end
