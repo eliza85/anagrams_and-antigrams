@@ -31,22 +31,27 @@ class Test
     return "These words are anagrams!"
   else
     return "These words are not anagrams!"
+  end
     # result = @input1 + @input2
     # self.function_tight(result)
   end
 
-  # def isword?
-  #   vowels = ["a", "e", "i", "o", "u", "y"]
-  #   input1array = @input1.downcase.split("")
-  #   input2array = @input2.downcase.split("")
-  #   if
-  #   input1array.any? {|input1array| vowels.include?(input1array)}
-  #   ||
-  #   input2array.any? {|input2array| vowels.include?(input2array)}
-  #   return true
-  # else
-  #   return "You need to input actual words!"
-  # end
+  def isword?
+    vowels = ["a", "e", "i", "o", "u", "y"]
+    input1array = @input1.downcase.split("")
+    input2array = @input2.downcase.split("")
+
+    if
+    input1array.any? {|input1array| vowels.include?(input1array)}
+      if
+      input2array.any? {|input2array| vowels.include?(input2array)}
+      return true
+    else
+      return "You need to input actual words!"
+    end
+  else
+    return "You need to input actual words!"
+  end
 
   end
 

@@ -27,10 +27,10 @@ describe("Anagram#anagram?") do
     test1 = Test.new("Eat", "Tea")
     expect(test1.anagram?()).to(eq("These words are anagrams!"))
   end
-  # it ("An input that is not a word will return an error message") do
-  #   test1 = Test.new("eat", "Tzrybq")
-  #   expect(test1.isword?()).to(eq("You need to input actual words!"))
-  # end
+  it ("An input that is not a word will return an error message") do
+    test1 = Test.new("eat", "Tzrbq")
+    expect(test1.isword?()).to(eq("You need to input actual words!"))
+  end
 end
 
 
