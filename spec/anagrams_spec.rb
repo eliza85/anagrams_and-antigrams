@@ -23,6 +23,10 @@ describe("Anagram#anagram?") do
     test1 = Test.new("eat", "tear")
     expect(test1.anagram?()).to(eq(false))
   end
+  it ("Comparing the words Eat and Tea will return true") do
+    test1 = Test.new("Eat", "Tea")
+    expect(test1.anagram?()).to(eq(true))
+  end
 end
 
 
