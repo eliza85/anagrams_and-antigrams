@@ -20,14 +20,14 @@
 class Test
 
   def initialize(input1, input2)
-    @input1 = input1
-    @input2 = input2
+    @input1 = input1.downcase.split("")
+    @input2 = input2.downcase.split("")
     # @vowels = ["a", "e", "i", "o", "u", "y"]
   end
 
   def anagram?
     if
-    @input1.downcase.split("").sort == @input2.downcase.split("").sort
+    @input1.sort == @input2.sort
     return "These words are anagrams!"
   else
     return "These words are not anagrams!"
@@ -38,13 +38,11 @@ class Test
 
   def isword?
     vowels = ["a", "e", "i", "o", "u", "y"]
-    input1array = @input1.downcase.split("")
-    input2array = @input2.downcase.split("")
 
     if
-    input1array.any? {|input1array| vowels.include?(input1array)}
+    @input1.any? {|input1| vowels.include?(input1)}
       if
-      input2array.any? {|input2array| vowels.include?(input2array)}
+      @input2.any? {|input2| vowels.include?(input2)}
       return true
     else
       return "You need to input actual words!"
