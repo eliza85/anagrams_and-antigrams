@@ -31,6 +31,15 @@ describe("Anagram#anagram?") do
     test1 = Test.new("eat", "Tzrbq")
     expect(test1.isword?()).to(eq("You need to input actual words!"))
   end
+  it ("Comparing the words eat and tea will return not an antigram") do
+    test1 = Test.new("eat", "tea")
+    expect(test1.antigrams?()).to(eq("These words are not antigrams!"))
+  end
+  it ("Comparing the words eat and bin will return an antigram") do
+    test1 = Test.new("eat", "bin")
+    expect(test1.antigrams?()).to(eq("These words are antigrams!"))
+  end
+
 end
 
 # If phrases aren't anagrams, the method should check whether they are actually "antigrams." For our purposes, a word is an "antigram" of another word if no letters match. For example, "hi" has no matches with "bye". The method should return something like this if there are no letter matches: "These words have no letter matches and are antigrams."

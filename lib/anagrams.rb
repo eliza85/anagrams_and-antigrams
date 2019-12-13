@@ -1,15 +1,15 @@
 class Test
 
   def initialize(input1, input2)
-    @input1 = input1.downcase.split("")
-    @input2 = input2.downcase.split("")
+    @input1 = input1.downcase.split("").sort
+    @input2 = input2.downcase.split("").sort
   end
 
   def anagram?
     if
     self.isword?
       if
-        @input1.sort == @input2.sort
+        @input1 == @input2
         return "These words are anagrams!"
       else
         return "These words are not anagrams!"
@@ -35,10 +35,17 @@ class Test
     end
   end
 
-    # >> cheeses = %w(chedder stilton brie mozzarella feta haloumi)
-    # => ["chedder", "stilton", "brie", "mozzarella", "feta", "haloumi"]
-    # >> foods = %w(pizza feta foods bread biscuits yoghurt bacon)
-    # => ["pizza", "feta", "foods", "bread", "biscuits", "yoghurt", "bacon"]
+  def antigrams?
+    if
+      @input1.any? {|input1| @input2.include?(input1)}
+      return "These words are not antigrams!"
+    else
+      return "These words are antigrams!"
+    end
+  end
+
+    # >> cheeses = ["chedder", "stilton", "brie", "mozzarella", "feta", "haloumi"]
+    # >> foods = ["pizza", "feta", "foods", "bread", "biscuits", "yoghurt", "bacon"]
     # >> foods.any? {|food| cheeses.include?(food) }
     # => true
   # def function_tight(result)
