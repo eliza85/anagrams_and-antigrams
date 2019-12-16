@@ -47,9 +47,13 @@ describe("Anagram#anagram?") do
     test1 = Test.new("eat", "flam")
     expect(test1.anagram?()).to(eq("These words are neither anagrams nor antigrams!"))
   end
+  it ("Comparing sentences i go to sleep and ugh, really will return that they are words") do
+    test1 = Test.new("I go to sleep", "Ugh, really")
+    expect(test1.allwords?()).to(eq(true))
+  end
 
 end
 
-# If phrases aren't anagrams, the method should check whether they are actually "antigrams." For our purposes, a word is an "antigram" of another word if no letters match. For example, "hi" has no matches with "bye". The method should return something like this if there are no letter matches: "These words have no letter matches and are antigrams."
+ # "These words have no letter matches and are antigrams."
 #
 # Account for multiple words being anagrams or "antigrams." Spaces and punctuation shouldn't count (so they should be removed). You'll need to make sure that each word in the inputted phrases is really a word (passing condition #4 above). You may want to use a regular expression to remove additional characters.

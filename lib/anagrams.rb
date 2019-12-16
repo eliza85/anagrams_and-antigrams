@@ -1,16 +1,19 @@
 class Test
 
   def initialize(input1, input2)
-    @input1 = input1.downcase.split("").sort
-    @input2 = input2.downcase.split("").sort
+    @input1 = input1
+    @input2 = input2
   end
+
 
 # check if words are anagrams
   def anagram?
+    chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
+    chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
     if
-    self.isword?
+    self.allwords?
       if
-        @input1 == @input2
+        chars1 == chars2
         return "These words are anagrams!"
       elsif
         self.antigrams?
@@ -26,10 +29,12 @@ class Test
 # check if words contain vowels
   def isword?
     vowels = ["a", "e", "i", "o", "u", "y"]
+    chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
+    chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
     if
-    @input1.any? {|input1| vowels.include?(input1)}
+    chars1.any? {|chars1| vowels.include?(chars1)}
       if
-      @input2.any? {|input2| vowels.include?(input2)}
+      chars2.any? {|chars2| vowels.include?(chars2)}
         return true
       else
         return "You need to input actual words!"
@@ -41,12 +46,28 @@ class Test
 
 # check if words are antigrams
   def antigrams?
+    chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
+    chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
     if
-      @input1.any? {|input1| @input2.include?(input1)}
+      chars1.any? {|chars1| chars2.include?(chars1)}
       return false
     else
       return true
     end
   end
 
+  # check if each word is a word
+  def allwords?
+    vowels = 'aeiouy'
+    words1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split(" ")
+    words2 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split(" ")
+    if
+      words1.all? {|str| str.count(vowels) >= 1}
+      if words2.all? {|str| str.count(vowels) >= 1}
+        return true
+      else
+        return false
+      end
+    end
+  end
 end
