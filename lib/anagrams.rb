@@ -26,23 +26,6 @@ class Test
     end
   end
 
-# check if words contain vowels
-  def isword?
-    vowels = ["a", "e", "i", "o", "u", "y"]
-    chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
-    chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
-    if
-    chars1.any? {|chars1| vowels.include?(chars1)}
-      if
-      chars2.any? {|chars2| vowels.include?(chars2)}
-        return true
-      else
-        return "You need to input actual words!"
-      end
-    else
-      return "You need to input actual words!"
-    end
-  end
 
 # check if words are antigrams
   def antigrams?
@@ -60,14 +43,32 @@ class Test
   def allwords?
     vowels = 'aeiouy'
     words1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split(" ")
-    words2 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split(" ")
+    words2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split(" ")
     if
-      words1.all? {|str| str.count(vowels) >= 1}
-      if words2.all? {|str| str.count(vowels) >= 1}
-        return true
-      else
-        return false
-      end
+      words1.all? {|str| str.count(vowels) >= 1} && words2.all? {|str| str.count(vowels) >= 1}
+      return true
+    else
+      return "You need to input actual words!"
     end
   end
 end
+
+# check if words contain vowels
+# def isword?
+#   vowels = ["a", "e", "i", "o", "u", "y"]
+#   chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
+#   chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
+#   if
+#     chars1.any? {|chars1| vowels.include?(chars1)}
+#     if
+#       chars2.any? {|chars2| vowels.include?(chars2)}
+#       return true
+#     else
+#       return "You need to input actual words!"
+#     end
+#   else
+#     return "You need to input actual words!"
+#   end
+# end
+#
+#

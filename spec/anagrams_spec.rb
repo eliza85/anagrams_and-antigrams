@@ -17,7 +17,7 @@ describe("Anagram#anagram?") do
   end
   it ("An input that is not a word will return an error message") do
     test1 = Test.new("eat", "Tzrbq")
-    expect(test1.isword?()).to(eq("You need to input actual words!"))
+    expect(test1.allwords?()).to(eq("You need to input actual words!"))
   end
   it ("Comparing the words eat and tea will return not an antigram") do
     test1 = Test.new("eat", "tea")
