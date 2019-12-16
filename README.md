@@ -21,7 +21,7 @@
              ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝     
 
 
-#### _Code Review, Anagram and Antigram Checker, 12.13.2019_
+## _Code Review, Anagram and Antigram Checker, 12.13.2019_
 
 
 
@@ -83,8 +83,8 @@ _Eliza.Sohn@gmail.com_
 
 ## Technologies Used
 
-_Ruby_
-_Markdown_
+* _Ruby_
+* _Markdown_
 
 ### License
 
