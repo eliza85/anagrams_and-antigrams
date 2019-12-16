@@ -6,7 +6,7 @@ class Test
   end
 
 
-# check if words are anagrams
+# check if words are anagrams, are actual words, and if they are antigrams
   def anagram?
     chars1 = @input1.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
     chars2 = @input2.downcase.gsub(/[!@#$%^&*()-=_+|;':",.<>?']/, '').split("").sort
