@@ -2,18 +2,6 @@ require ('pry')
 require ('rspec')
 require ('anagrams')
 
-
-
-
-# PLUMBED WITHOUT INSTANCE VARIABLES
-# describe("Change#find_change") do
-#   it ("returns 8") do
-#     dude1 = Dude.new()
-#     expect(dude1.function_dude(5,3)).to(eq(24))
-#   end
-# end
-
-# PLUMBED WITH INSTANCES
 describe("Anagram#anagram?") do
   it ("Comparing the words eat and tea will return true") do
     test1 = Test.new("eat", "tea")
@@ -51,9 +39,4 @@ describe("Anagram#anagram?") do
     test1 = Test.new("I go to sleep", "Ugh, really")
     expect(test1.allwords?()).to(eq(true))
   end
-
 end
-
- # "These words have no letter matches and are antigrams."
-#
-# Account for multiple words being anagrams or "antigrams." Spaces and punctuation shouldn't count (so they should be removed). You'll need to make sure that each word in the inputted phrases is really a word (passing condition #4 above). You may want to use a regular expression to remove additional characters.
